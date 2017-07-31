@@ -4,7 +4,6 @@ package nerimta;
 
 public class Spawner 
 {
-	boolean alive = true;		// flag for disposal
 	
 	int maxRate;		// rate of spawning
 	int rate;			// for calculating

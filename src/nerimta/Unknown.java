@@ -3,8 +3,6 @@ package nerimta;
 public class Unknown extends Enemy 
 {
 	
-	
-	
 	public Unknown	(double speedX, double speedY, double posX, double posY, Wave wave) 
 		{
 			super(speedX, speedY, posX, posY);

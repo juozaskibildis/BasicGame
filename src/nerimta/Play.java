@@ -10,11 +10,10 @@ import org.newdawn.slick.state.*;
 /*
 to do:
 
-user interface
-fix menu and pause !!!!!!!!!!!!!!
-
 features
 make menus controllable by keyboard
+make different enemy spawn locations
+make more enemy types
 
 sound
 make Background music
