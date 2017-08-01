@@ -11,15 +11,13 @@ import org.newdawn.slick.state.*;
 to do:
 
 features
-make menus controllable by keyboard
 make different enemy spawn locations
 make more enemy types
 
 sound
-make Background music
 
 art
-make buttons
+replace all strings that are drawn with pictures
 
 */
 
