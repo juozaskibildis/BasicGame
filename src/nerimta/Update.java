@@ -23,6 +23,8 @@ public class Update
 	
 	public static List<SpawnLocation> spawnLocationList0;
 	public static List<SpawnLocation> spawnLocationList1;
+	public static List<SpawnLocation> spawnLocationList2;
+	public static List<SpawnLocation> spawnLocationList3;
 	
 	public static Random random = new Random();
 	
@@ -255,6 +257,7 @@ public class Update
 		}
 		
 		spawnersToRemove.clear();
+
 	}
 	
 	
@@ -263,9 +266,9 @@ public class Update
 	
 	public static void waveCreateSpawners(Wave wave)
 	{
-		// if wave is not clear
+		// if wave is clear
 		if(spawnerList.isEmpty() && enemyList.isEmpty())
-		{
+		{		
 			if(wave.delayLeft == 0)
 			{
 				wave.createSpawners();
@@ -274,6 +277,12 @@ public class Update
 			}
 			else
 			{
+				// remove enemy bullets
+				if(!enemyBulletsList.isEmpty())
+				{
+					bulletsToRemove.add(enemyBulletsList.get(0));		// removes a single bullet per frame
+				}
+				
 				wave.delayLeft--;
 			}
 		}

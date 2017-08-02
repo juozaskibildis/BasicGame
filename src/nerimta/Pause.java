@@ -51,6 +51,8 @@ public class Pause extends BasicGameState
 			choice = 1;
 			if(Mouse.isButtonDown(0))
 			{
+				// hide mouse cursor
+				gc.setMouseCursor(Play.blankImage, 0, 0);
 				sbg.enterState(Game.play);
 			}
 		}
@@ -71,6 +73,14 @@ public class Pause extends BasicGameState
 		{
 			if(input.isKeyPressed(Input.KEY_ENTER))
 			{
+				// hide mouse cursor
+				gc.setMouseCursor(Play.blankImage, 0, 0);
+				sbg.enterState(Game.play);
+			}
+			if(input.isKeyPressed(Input.KEY_Z))
+			{
+				// hide mouse cursor
+				gc.setMouseCursor(Play.blankImage, 0, 0);
 				sbg.enterState(Game.play);
 			}
 		}
@@ -78,6 +88,11 @@ public class Pause extends BasicGameState
 		if(choice == 2)
 		{
 			if(input.isKeyPressed(Input.KEY_ENTER))
+			{
+				sbg.getState(Game.menu).init(gc, sbg);
+				sbg.enterState(Game.menu);
+			}
+			if(input.isKeyPressed(Input.KEY_Z))
 			{
 				sbg.getState(Game.menu).init(gc, sbg);
 				sbg.enterState(Game.menu);

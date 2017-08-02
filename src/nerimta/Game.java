@@ -19,8 +19,6 @@ public class Game extends StateBasedGame
 	public static boolean fullscreen = false;
 	public static double masterVolume = 1;
 	
-	
-	
 	public Game(String GAMENAME)
 	{
 		super(GAMENAME);							// window name

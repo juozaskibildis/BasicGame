@@ -57,11 +57,21 @@ public class GameOver extends BasicGameState
 				sbg.getState(Game.menu).init(gc, sbg);
 				sbg.enterState(Game.menu);
 			}
+			if(input.isKeyPressed(Input.KEY_Z))
+			{
+				sbg.getState(Game.menu).init(gc, sbg);
+				sbg.enterState(Game.menu);
+			}
 		}
 		
 		if(choice == 1)						// first item in menu selected
 		{
 			if(input.isKeyPressed(Input.KEY_ENTER))
+			{
+				sbg.getState(Game.menu).init(gc, sbg);
+				sbg.enterState(Game.menu);
+			}
+			if(input.isKeyPressed(Input.KEY_Z))
 			{
 				sbg.getState(Game.menu).init(gc, sbg);
 				sbg.enterState(Game.menu);

@@ -13,6 +13,7 @@ to do:
 features
 make different enemy spawn locations
 make more enemy types
+make boost effect longer
 
 sound
 
@@ -40,6 +41,8 @@ public class Play extends BasicGameState
 	Image playerBulletSprite;
 	Image enemyBulletSprite;
 	Image gameBackground;
+	
+	public static Image blankImage;		// to hide cursor it is needed to replace image with a blank one
 	
 	// temporary variables
 	PlayerBullet tempBullet = null;
@@ -75,6 +78,7 @@ public class Play extends BasicGameState
 		enemyFire = new Sound("/res/enemy.wav");
 		characterMove = new Sound("/res/movement.wav");
 		
+		blankImage = new Image("/res/blank.png");				// have to do this to hide cursor
 		
 		// list initialization
 		Update.bulletsList = new LinkedList<Bullet>();
@@ -92,13 +96,15 @@ public class Play extends BasicGameState
 		
 		Update.spawnLocationList0 = new LinkedList<SpawnLocation>();
 		Update.spawnLocationList1 = new LinkedList<SpawnLocation>();
+		Update.spawnLocationList2 = new LinkedList<SpawnLocation>();
+		Update.spawnLocationList3 = new LinkedList<SpawnLocation>();
 		
 		// a method to populate spawn location list
 		Wave.populateSpawnLocationList();
 		
 		// new game objects
-		character = new Character(100, 7, 6, 7, 400, 300, 8);
-		wave = new Wave(0, 240, 10, 60, 0);
+		character = new Character(100, 7, 6, 7, 400, 300, 5);
+		wave = new Wave(0, 240, 10, 60, 5, 1);
 	
 	}
 	
@@ -170,12 +176,14 @@ public class Play extends BasicGameState
 		// pausing
 		if(input.isKeyPressed(Input.KEY_ESCAPE))
 		{
+			gc.setDefaultMouseCursor();
 			sbg.enterState(Game.pause);
 		}
 		
 		// failure state
 		if(character.hp <= 0)
 		{
+			gc.setDefaultMouseCursor();
 			sbg.enterState(Game.gameOver);
 		}
 		

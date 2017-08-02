@@ -6,10 +6,9 @@ import org.newdawn.slick.Input;
 
 public class Character 
 {
-	public static int movementSoundIsPlaying = 7;
+	public static int movementSoundIsPlaying = 7;		// this is used to create delay between each sound played
 	public static int movementSoundWait = 7;
-	
-	
+
 	// speed
 	double speed;
 	double bulletSpeed;
@@ -52,7 +51,7 @@ public class Character
 	{
 		if(boost > 0)
 		{
-			boost--;
+			boost -= 0.15;
 		}
 	}
 	

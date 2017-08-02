@@ -68,6 +68,8 @@ public class Menu extends BasicGameState
 			choice = 1;
 			if(Mouse.isButtonDown(0))
 			{
+				// hide mouse cursor
+				gc.setMouseCursor(Play.blankImage, 0, 0);
 				sbg.getState(Game.play).init(gc, sbg);
 				sbg.enterState(Game.play);
 			}
@@ -100,6 +102,15 @@ public class Menu extends BasicGameState
 		{
 			if(input.isKeyPressed(Input.KEY_ENTER))
 			{
+				// hide mouse cursor
+				gc.setMouseCursor(Play.blankImage, 0, 0);
+				sbg.getState(Game.play).init(gc, sbg);
+				sbg.enterState(Game.play);
+			}
+			if(input.isKeyPressed(Input.KEY_Z))
+			{
+				// hide mouse cursor
+				gc.setMouseCursor(Play.blankImage, 0, 0);
 				sbg.getState(Game.play).init(gc, sbg);
 				sbg.enterState(Game.play);
 			}
@@ -108,6 +119,22 @@ public class Menu extends BasicGameState
 		if(choice == 2)
 		{
 			if(input.isKeyPressed(Input.KEY_ENTER))
+			{
+				if(Game.fullscreen == true)
+				{
+					Game.fullscreen = false;
+					try
+					{
+						gc.setFullscreen(Game.fullscreen);	// quitting full screen seems to help with the game not closing completely
+					}
+					catch(SlickException e)
+					{
+						e.printStackTrace();
+					}
+				}
+				gc.exit();
+			}
+			if(input.isKeyPressed(Input.KEY_Z))
 			{
 				if(Game.fullscreen == true)
 				{
